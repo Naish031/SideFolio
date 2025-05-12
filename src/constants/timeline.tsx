@@ -2,7 +2,7 @@ export const timeline = [
   {
     company: "K&K Associates",
     title: "Freelance project | Lead Frontend Developer",
-    date: "2025 (April) - 2025 (May)",
+    date: "2025 (April-May)",
     description: "Building the future of portfolio websites",
     responsibilities: [
       "Led frontend development of a fully responsive, animated portfolio site using Next.js, Tailwind CSS, and Framer Motion",
@@ -14,7 +14,7 @@ export const timeline = [
   {
     company: "NextRep",
     title: "Final Year Project | Lead Full-Stack Developer (Frontend-Focused)",
-    date: "2025 (January) - 2025 (April)",
+    date: "2025 (January-April)",
     description: "Building the future of e-commerce",
     responsibilities: [
       "Built a headless e-commerce storefront using Next.js, Shopify Storefront API, and Tailwind CSS",
@@ -26,7 +26,7 @@ export const timeline = [
   {
     company: "MDA.space",
     title: "Frontend Developer (Contract Role)",
-    date: "2024 (October) - 2025 (January)",
+    date: "2024 (October) - 2025 (February)",
     description: "Building the future of web design",
     responsibilities: [
       "Migrated legacy Vue/Nuxt codebase to Next.js, rebuilding complex interfaces and responsive layouts while preserving original design fidelity",
@@ -37,7 +37,7 @@ export const timeline = [
   {
     company: "OBS Technologia",
     title: "Junior Frontend Developer",
-    date: "2023 (May) - 2023 (September)",
+    date: "2023 (May-September)",
     description: "Building the future of search",
     responsibilities: [
       "Improved the search algorithm to provide more relevant results",
