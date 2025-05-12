@@ -1,14 +1,37 @@
 export const timeline = [
   {
-    company: "Amazon",
-    title: "Senior Software Engineer",
-    date: "2022 - Present",
+    company: "K&K Associates",
+    title: "Freelance project | Lead Frontend Developer",
+    date: "2025 (April) - 2025 (May)",
+    description: "Building the future of portfolio websites",
+    responsibilities: [
+      "Led frontend development of a fully responsive, animated portfolio site using Next.js, Tailwind CSS, and Framer Motion",
+      "Collaborated closely with a senior UI/UX designer to translate Figma mockups into pixel-perfect, production-ready code",
+      "Engineered reusable UI components and optimized asset loading for SEO and performance (Core Web Vitals)",
+      "Independently wrote high-converting content for the website",
+    ],
+  },
+  {
+    company: "NextRep",
+    title: "Final Year Project | Lead Full-Stack Developer (Frontend-Focused)",
+    date: "2025 (January) - 2025 (April)",
     description: "Building the future of e-commerce",
     responsibilities: [
-      "Developed a new feature that improves the shopping experience",
-      "Implemented a recommendation algorithm to suggest products",
-      "Enhanced the checkout process making it more intuitive and user-friendly",
-      "Built a feature for tracking packages in real-time",
+      "Built a headless e-commerce storefront using Next.js, Shopify Storefront API, and Tailwind CSS",
+      "Incorporated complex GraphQL queries and dynamic routing",
+      "Integrated a custom AI-powered chatbot (via DeepSeek AI) that enables users to discover and filter products using conversational, human-like queries",
+      "Implemented scalable component architecture and advanced data-fetching strategies, including SSR/ISR, to support a responsive and personalized shopping experience",
+    ],
+  },
+  {
+    company: "MDA.space",
+    title: "Frontend Developer (Contract Role)",
+    date: "2024 (October) - 2025 (January)",
+    description: "Building the future of web design",
+    responsibilities: [
+      "Migrated legacy Vue/Nuxt codebase to Next.js, rebuilding complex interfaces and responsive layouts while preserving original design fidelity",
+      "Integrated dynamic animations using GSAP to recreate interactive elements from the previous site, including scroll-based effects and responsive transitions",
+      "Conducted cross-browser/mobile testing and accessibility improvements, ensuring design consistency and performance across all breakpoints",
     ],
   },
   {
@@ -24,3 +47,4 @@ export const timeline = [
     ],
   },
 ];
+
