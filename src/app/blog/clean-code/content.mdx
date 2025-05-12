@@ -1,5 +1,4 @@
 import { BlogLayout } from "@/components/BlogLayout";
-
 import { CodeWindow } from "@/components/CodeWindow";
 
 export const meta = {
@@ -14,28 +13,128 @@ export const meta = {
 
 export default (props) => <BlogLayout meta={meta} {...props} />;
 
-Velit cillum fugiat proident pariatur anim proident laborum incididunt magna in labore adipisicing veniam quis. Ut et exercitation dolor in enim quis. Et est excepteur exercitation voluptate in qui duis nulla in anim ut commodo deserunt nisi. Dolor pariatur irure occaecat Lorem mollit veniam adipisicing.
+Writing clean code in React isn’t just about style — it’s about writing components that are **easy to read, maintain, and scale**. Whether you're building a side project or contributing to a large codebase, following clean code principles will set you (and your team) up for long-term success.
 
-Deserunt qui ea do et laborum ad id. Tempor laborum aute fugiat tempor eu. Amet sint sint proident pariatur eiusmod mollit excepteur excepteur. Dolore cillum nulla enim tempor ad.
+Here are a few principles to keep in mind:
 
-Laborum quis proident ut anim consectetur. Consequat fugiat eiusmod qui officia duis eu minim cillum do qui. Sunt sit veniam minim ad id sunt magna est enim.
+## 1. Prefer Composition Over Complexity
 
-Consectetur est sunt minim culpa quis aute officia incididunt ea laboris nulla officia dolor. Cupidatat cupidatat esse veniam cillum labore ullamco aliqua ex. Cillum incididunt ipsum laborum dolor enim incididunt consectetur id consectetur magna. Consequat mollit non ea cupidatat exercitation. Consequat reprehenderit eiusmod nisi ea esse id ut est consequat eu aliqua do quis.
+Instead of writing large monolithic components, break things down into smaller composable components that do one thing well.
 
-Occaecat commodo velit ea consectetur ut sit. Duis eiusmod ad tempor nisi magna dolore incididunt ea dolore. Commodo proident eiusmod consequat cupidatat consectetur adipisicing dolor commodo tempor labore non dolore Lorem consectetur.
+```tsx
+// ❌ Bad: Monolithic component trying to handle too many responsibilities
+const Dashboard = () => {
+  const [user, setUser] = useState(null);
+  const [notifications, setNotifications] = useState([]);
 
-## Code Snippet
+  useEffect(() => {
+    fetchUser().then(setUser);
+    fetchNotifications().then(setNotifications);
+  }, []);
 
-<CodeWindow title="BoxesContainer.tsx">
+  return (
+    <div>
+      <h1>{user?.name}'s Dashboard</h1>
+      <ul>
+        {notifications.map((n) => (
+          <li key={n.id}>{n.message}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+```
 
-```TSX
+```tsx
+// ✅ Good: Composed from smaller, focused components
+const Dashboard = () => {
+  return (
+    <div>
+      <UserHeader />
+      <NotificationsList />
+    </div>
+  );
+};
+
+const UserHeader = () => {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    fetchUser().then(setUser);
+  }, []);
+  return <h1>{user?.name}'s Dashboard</h1>;
+};
+
+const NotificationsList = () => {
+  const [notifications, setNotifications] = useState([]);
+  useEffect(() => {
+    fetchNotifications().then(setNotifications);
+  }, []);
+  return (
+    <ul>
+      {notifications.map((n) => (
+        <li key={n.id}>{n.message}</li>
+      ))}
+    </ul>
+  );
+};
+```
+
+## 2. Keep Functions Pure and Predictable
+
+Avoid side effects in render logic. Use hooks like `useEffect` only when necessary, and try to keep functions small and predictable.
+
+```tsx
+// ❌ Bad: Side effects and logic interleaved inside the component
+const ProductCard = ({ price }) => {
+  const discountedPrice = applyDiscount(price); // hardcoded global logic
+
+  const applyDiscount = (p) => {
+    console.log("Applying discount"); // side effect
+    return p * 0.9;
+  };
+
+  return <p>{discountedPrice}</p>;
+};
+```
+
+```tsx
+// ✅ Good: Pure functions extracted and used cleanly
+const applyDiscount = (price: number, discount: number = 0.1) => {
+return price \* (1 - discount);
+};
+
+const ProductCard = ({ price }) => {
+const discountedPrice = applyDiscount(price);
+return <p>{discountedPrice}</p>;
+};
+```
+
+## 3. Use Meaningful Naming
+
+Name variables, functions, and components in ways that express their intent.
+
+```tsx
+// ❌ Bad
+const x = () => {
+  // what does this do?
+};
+
+// ✅ Good
+const handleBoxHover = () => {
+  // clearly named
+};
+```
+
+## 4. Avoid Overloading a Component With Logic
+
+```tsx
 import React from "react";
 import { motion } from "framer-motion";
 
 export const BoxesContainer = () => {
   const rows = new Array(150).fill(1);
   const cols = new Array(100).fill(1);
-  let colors = [
+  const colors = [
     "--sky-300",
     "--pink-300",
     "--green-300",
@@ -46,6 +145,7 @@ export const BoxesContainer = () => {
     "--indigo-300",
     "--violet-300",
   ];
+
   const getRandomColor = () => {
     return colors[Math.floor(Math.random() * colors.length)];
   };
@@ -53,28 +153,27 @@ export const BoxesContainer = () => {
   return (
     <div
       style={{
-        transform: `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
+        transform:
+          "translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)",
       }}
-      className="absolute left-1/4 p-4 -top-1/4 flex  -translate-x-1/2 -translate-y-1/2 w-full h-full z-0 "
+      className="absolute left-1/4 p-4 -top-1/4 flex -translate-x-1/2 -translate-y-1/2 w-full h-full z-0"
     >
       {rows.map((_, i) => (
         <motion.div
-          key={`row` + i}
-          className="w-16 h-8  border-l  border-slate-700 relative"
+          key={`row${i}`}
+          className="w-16 h-8 border-l border-slate-700 relative"
         >
           {cols.map((_, j) => (
             <motion.div
+              key={`col${j}`}
               whileHover={{
                 backgroundColor: `var(${getRandomColor()})`,
                 transition: { duration: 0 },
               }}
-              animate={{
-                transition: { duration: 2 },
-              }}
-              key={`col` + j}
-              className="w-16 h-8  border-r border-t border-slate-700 relative"
+              animate={{ transition: { duration: 2 } }}
+              className="w-16 h-8 border-r border-t border-slate-700 relative"
             >
-              {j % 2 === 0 && i % 2 === 0 ? (
+              {j % 2 === 0 && i % 2 === 0 && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -89,7 +188,7 @@ export const BoxesContainer = () => {
                     d="M12 6v12m6-6H6"
                   />
                 </svg>
-              ) : null}
+              )}
             </motion.div>
           ))}
         </motion.div>
@@ -97,7 +196,4 @@ export const BoxesContainer = () => {
     </div>
   );
 };
-
 ```
-
-</CodeWindow>

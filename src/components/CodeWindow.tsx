@@ -5,7 +5,12 @@ import React, { useEffect, Children, useState, useRef } from "react";
 // import "prism-theme-night-owl";
 import clsx from "clsx";
 
-export const CodeWindow = ({ title, children }: any) => {
+type CodeWindowProps = {
+  title: string;
+  children: string | React.ReactNode;
+};
+
+export const CodeWindow = ({ title, children }: CodeWindowProps) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -14,8 +19,6 @@ export const CodeWindow = ({ title, children }: any) => {
   useEffect(() => {
     // Prism.highlightAll();
   }, []);
-
-  let child = Children.only(children);
 
   const [buttonText, setButtonText] = useState("Copy");
   const childRef = useRef<any>(null);
@@ -42,7 +45,7 @@ export const CodeWindow = ({ title, children }: any) => {
     isClient && (
       <div
         className={clsx(
-          "bg-slate-900 rounded-md w-auto overflow-hidden flex flex-col my-10 prose prose-sm ",
+          "bg-slate-900 text-white rounded-md w-auto overflow-hidden flex flex-col my-10 prose prose-sm ",
           "prose prose-slate max-w-none dark:prose-invert dark:text-slate-400",
           // headings
           "prose-headings:scroll-mt-28  prose-headings:font-display prose-headings:font-normal lg:prose-headings:scroll-mt-[8.5rem]",
@@ -58,8 +61,8 @@ export const CodeWindow = ({ title, children }: any) => {
           "dark:prose-hr:border-slate-800"
         )}
       >
-        <div className="flex justify-between items-center bg-slate-800 py-2  px-4">
-          <p className=" text-emerald-500 text-sm font-medium bg-emerald-600/[0.3] px-2 !my-0 shadow-sm">
+        <div className="flex justify-between items-center bg-slate-800 py-2 px-4">
+          <p className=" text-emerald-500 text-sm font-medium bg-emerald-600/[0.3] p-2 !my-0 shadow-sm">
             {title}
           </p>
 

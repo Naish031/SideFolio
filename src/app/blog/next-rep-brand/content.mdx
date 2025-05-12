@@ -1,0 +1,113 @@
+import { BlogLayout } from "@/components/BlogLayout";
+import Image from "next/image";
+
+export const meta = {
+  date: "2025-05-11",
+  title: "Building NextRep Sports: AI Meets Gymwear E-Commerce",
+  description: `An in-depth look at how I built NextRep Sports — a gymwear e-commerce store enhanced with a chatbot assistant powered by AI and Shopify.`,
+  image: "/images/nextrep-homepage.png",
+  tags: ["Next.js", "Tailwind CSS", "Shopify", "AI Chatbot", "Final Year Project"],
+};
+
+export default (props) => <BlogLayout meta={meta} {...props} />;
+
+## Introduction
+
+NextRep Sports is a gymwear e-commerce store I developed as my final year university project. This wasn’t just another online store — it was a platform designed to explore how artificial intelligence, specifically conversational assistants, could make product discovery smarter and more intuitive.
+
+The goal? Build a modern, responsive, and AI-enhanced shopping experience that makes it easier for fitness enthusiasts to find the right products using natural language.
+
+## Inspiration
+
+The idea for this project came from two personal passions: tech and fitness. I'd long wanted to build an e-commerce store, and when the opportunity came to do a final year project, everything aligned. I chose the gymwear niche because I actively work out and understand the market. The AI chatbot assistant became the standout feature that made this more than a standard store.
+
+## Objectives and Core Features
+
+My primary aim was to:
+
+- Build a fully functional e-commerce store with real product data
+- Integrate a chatbot to improve product discovery
+- Use Shopify as a CMS and storefront backend
+- Create a smooth, animated, and responsive UI with Tailwind and Next.js
+- Deploy the final product on Vercel
+
+Key e-commerce features implemented:
+
+- Product filtering by category and collection
+- Cart system with add/remove/update actions
+- Checkout process via Shopify
+- Real-time updates using Shopify webhooks
+
+<Image src="/images/nextrep-landing.png" alt="Landing Page Screenshot" width={1200} height={800} />
+*Screenshot: Landing page of NextRep Sports with bold product visuals and clean layout.*
+
+## Chatbot Functionality
+
+The chatbot is the heart of the NextRep Sports experience.
+
+Two versions were developed:
+
+1. **Keyword-based fallback** — If DeepSeek AI fails or takes too long, the system detects keywords from over 100+ common queries to suggest relevant products.
+2. **AI-powered version** — DeepSeek AI connects via API to understand user input and recommend products using knowledge of all items in the store.
+
+The chatbot sits fixed in the bottom-right corner and opens as a modal — designed to feel like a natural part of the browsing experience without disrupting the user’s flow.
+
+<Image src="/images/nextrep-chatbot.png" alt="Chatbot Screenshot" width={1200} height={800} />
+*Screenshot: Chatbot modal opened on the product page with suggestions based on user input.*
+
+## Design Approach
+
+The UI/UX design for NextRep Sports was developed hands-on during frontend implementation rather than through formal wireframes. I drew inspiration from Gymshark and built the frontend directly with Tailwind CSS. Some of the key design choices included:
+
+- Sticky navigation header with cart visibility
+- Mobile-first layout for responsive experience
+- Neutral background with bold, clean product imagery
+- Clear typography for accessibility
+
+<Image src="/images/nextrep-product.png" alt="Product Page Screenshot" width={1200} height={800} />
+*Screenshot: Product page displaying dynamic variants and real-time cart integration.*
+
+## Tech Stack and Development Workflow
+
+- **Frontend**: Next.js, Tailwind CSS, Framer Motion
+- **Backend**: Shopify Storefront API (GraphQL)
+- **AI**: DeepSeek API integration with fallback logic
+- **Deployment**: Vercel + GitHub CI/CD
+- **Version Control**: Git and GitHub (see Appendix – Figure A4 for commit history)
+
+GraphQL played a significant role in powering backend operations:
+
+- `getProducts`, `getCollectionProducts` for product retrieval
+- `addToCart`, `removeFromCart` for cart actions
+- `createCart` and `checkout` flow integration
+- `revalidate()` webhook to keep content fresh
+
+<Image src="/images/nextrep-graphql.png" alt="GraphQL Query Example" width={1200} height={800} />
+*Screenshot: Custom GraphQL query for fetching product collections.*
+
+## Technical Challenges
+
+Several roadblocks came up during development:
+
+- **Bulk CSV imports** into Shopify were tricky due to strict formatting and rejected image URLs. After testing, I used Shopify’s sample template and carefully validated image links and required fields.
+- **GraphQL schema learning curve**: Shopify’s nested GraphQL structure required deep trial-and-error, especially when building dynamic filters and cart logic.
+
+## Reflections and Lessons Learned
+
+Building NextRep Sports gave me hands-on experience with full-stack web development, combining frontend animation, real-time data updates, third-party API integration, and conversational AI.
+
+It also taught me the importance of building systems that fail gracefully (e.g., chatbot fallback), designing with responsiveness in mind, and staying organized through consistent Git workflows.
+
+## Conclusion
+
+NextRep Sports is more than just a final year project — it’s a real-world digital product built with modern tech and practical problem-solving. It reflects both my passion for fitness and my ability to create full-stack web apps that are performant, engaging, and user-focused.
+
+---
+
+### Suggested Screenshot Placeholders
+
+- `/images/nextrep-landing.png` → Landing page with hero section
+- `/images/nextrep-chatbot.png` → Chatbot open with query suggestions
+- `/images/nextrep-product.png` → Product detail page with cart controls
+- `/images/nextrep-graphql.png` → Code snippet or GraphQL interface
+- `/images/nextrep-pagespeed.png` → Lighthouse or PageSpeed results

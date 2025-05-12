@@ -1,0 +1,48 @@
+import { BlogLayout } from "@/components/BlogLayout";
+import Image from "next/image";
+
+export const meta = {
+  date: "2025-05-11",
+  title: "Building the K&K Associates Portfolio Website",
+  description: `A deep dive into the development of K&K Associates' portfolio website, highlighting the design process, technology stack, and lessons learned.`,
+  image: "/images/websiteV2.png",
+  tags: ["Next.js", "Tailwind CSS", "Framer Motion", "Portfolio"],
+};
+
+export default (props) => <BlogLayout meta={meta} {...props} />;
+
+## Introduction
+
+K&K Associates, a firm specializing in MEP and Civil Solutions, needed a modern online presence to showcase their technical expertise and attract new clients. Their previous website lacked visual appeal, interactivity, and structure, which limited their ability to stand out in a competitive field. This project aimed to redesign the site from the ground up with a clean interface, subtle animations, and a strong focus on professionalism.
+
+## About the Company
+
+The CEO of K&K TEK has consistently built a business rooted in technical proficiency and project reliability. The company focuses on delivering quality, safety, and sustainability through experienced professionals and dedicated project management. Their growing reputation in the MEP and civil construction space made it essential to have a website that reflected their capabilities and ambition.
+
+## Objectives and Approach
+
+The core objective was to build a responsive, animated portfolio website that highlighted key projects and clients while delivering an engaging experience. Working solo, I was responsible for translating Figma designs into functional code, implementing scroll-based animations with Framer Motion, and integrating reusable UI components via the Aceternity UI library. The client emphasized the need for modern aesthetics and animations that would leave a lasting impression on visitors.
+
+## Design Process
+
+I began by exploring competitor websites and aligning the layout with construction-sector standards. The design was created with a mobile-first approach and refined through feedback sessions with the client. Careful attention was given to responsiveness, clarity, and minimalism. Animations were selectively introduced to guide attention and elevate the user experience without compromising performance.
+
+## Tech Stack and Features
+
+The site was developed using Next.js, TypeScript, Tailwind CSS, and Framer Motion. UI elements were enhanced using components from Aceternity UI, which were customized to match the branding and flow of the site. Animations were synchronized with scroll position, creating smooth transitions across sections. The final deployment was done via Vercel, which offered seamless CI/CD integration.
+
+<Image src="/images/websiteV1.png" alt="Old Website Screenshot" width={1200} height={800} />
+*Screenshot: Old static website, lacking modern structure and interactivity.*
+
+<Image src="/images/websiteV2.png" alt="New Website Screenshot" width={1200} height={800} />
+*Screenshot: Newly designed live website with animations and improved layout.*
+
+## Reflections and Results
+
+This project deepened my understanding of combining animation libraries with component-based frameworks. One key takeaway was the importance of aligning design iterations with client feedback early to avoid costly misalignment. By involving the client more directly during each stage, we ensured that expectations were met. Performance was a strong focus, with the final build achieving a 98/100 score on Google PageSpeed Insights for both mobile and desktop.
+
+<Image src="/images/pageInsights.png" alt="PageSpeed Insights Results" width={1200} height={800} />
+*Google PageSpeed Insights – near-perfect score for both performance and accessibility.*
+
+---
+
