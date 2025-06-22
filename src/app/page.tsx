@@ -12,7 +12,7 @@ export default function Home() {
       <span className="text-4xl">👋</span>
       <Heading className="font-black">Hello there! I&apos;m Naish</Heading>
       <Paragraph className="max-w-xl mt-4">
-        I&apso;m a frontend web developer with{" "}
+        I&apos;m a frontend web developer with{" "}
         <Highlight>2 years of hands-on experience</Highlight> building
         responsive, high-performance websites that blend design and
         functionality. I specialize in{" "}
