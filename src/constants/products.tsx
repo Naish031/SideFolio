@@ -1,29 +1,70 @@
-import knkassociates from "public/images/knk_landing_page.png";
-import knkassociates2 from "public/images/knk_about_page.png";
-import knkassociates3 from "public/images/knk_contact_page.png";
-import flash from "public/images/flash_landing_page.png";
-import flash2 from "public/images/flash_second_page.png";
-import flash3 from "public/images/flash_about_page.png";
-import mda from "public/images/mda_landing_page.png";
-import mda2 from "public/images/mda_heritage_page.png";
-import mda3 from "public/images/mda_search_page.png";
-import naish from "public/images/naish_portfolio_landing_page.png";
-import naish2 from "public/images/naish_portfolio_second_page.png";
-import naish3 from "public/images/naish_portfolio_contact_page.png";
-import nextRep from "public/images/nextRep_landing_page.png";
-import nextRep2 from "public/images/nextRep_second_page.png";
-import nextRep3 from "public/images/nextRep_product_page.png";
+import knkassociates from 'public/images/knk_landing_page.png';
+import knkassociates2 from 'public/images/knk_about_page.png';
+import knkassociates3 from 'public/images/knk_contact_page.png';
+import flash from 'public/images/flash_landing_page.png';
+import flash2 from 'public/images/flash_second_page.png';
+import flash3 from 'public/images/flash_about_page.png';
+import mda from 'public/images/mda_landing_page.png';
+import mda2 from 'public/images/mda_heritage_page.png';
+import mda3 from 'public/images/mda_search_page.png';
+import naish from 'public/images/naish_portfolio_landing_page.png';
+import naish2 from 'public/images/naish_portfolio_second_page.png';
+import naish3 from 'public/images/naish_portfolio_contact_page.png';
+import nextRep from 'public/images/nextRep_landing_page.png';
+import nextRep2 from 'public/images/nextRep_second_page.png';
+import nextRep3 from 'public/images/nextRep_product_page.png';
+import inventoryThumb from 'public/images/inventory_thumbnail.png';
+import inventoryImg1 from 'public/images/inventory_user_page.png';
+import inventoryImg2 from 'public/images/inventory_item_page.png';
+import React from 'react';
 
 export const products = [
   {
-    href: "https://www.knkassociates.org/",
-    title: "Knkassociates",
+    href: 'https://simple-shop-eight.vercel.app/admin',
+    title: 'Inventory Management System',
     description:
-      "A premier construction and engineering consultancy delivering innovative infrastructure solutions across Pakistan.",
+      'A role-based inventory management system with admin approval flows, item check-in/check-out tracking, and activity logs.',
+    thumbnail: inventoryThumb,
+    images: [inventoryImg1, inventoryImg2],
+    stack: ['Next.js', 'React', 'MongoDB', 'Node.js', 'Tailwind CSS'],
+    slug: 'inventory-management-system',
+    content: (
+      <div>
+        <p>
+          This project is a full-stack inventory management system built to
+          handle real-world workflows around asset tracking and user
+          permissions. The system supports two roles: admins and users. Users
+          can sign up or log in, but access is restricted until an admin
+          approves their account, ensuring controlled and secure usage.
+        </p>
+        <p>
+          Once approved, users can check items in and out, while admins have
+          full control over inventory, user management, and system activity.
+          Admins can create and update inventory items, assign roles, and view
+          detailed logs showing which users checked items in or out and when.
+          The dashboard also provides a quick overview of total items, stock
+          levels, and low-stock alerts.
+        </p>
+        <p>
+          The application was built using Next.js with a focus on clean UI,
+          performance, and maintainable architecture. On the backend, REST APIs
+          handle authentication, authorization, inventory updates, and logging.
+          This project demonstrates my ability to design role-based systems,
+          connect frontend interfaces with backend logic, and build practical
+          tools used in internal business environments.
+        </p>
+      </div>
+    ),
+  },
+  {
+    href: 'https://www.knkassociates.org/',
+    title: 'Knkassociates',
+    description:
+      'A premier construction and engineering consultancy delivering innovative infrastructure solutions across Pakistan.',
     thumbnail: knkassociates,
     images: [knkassociates2, knkassociates3],
-    stack: ["Nextjs", "Tailwindcss", "Motion"],
-    slug: "Knkassociates",
+    stack: ['Nextjs', 'Tailwindcss', 'Motion'],
+    slug: 'Knkassociates',
     content: (
       <div>
         <p>
@@ -52,14 +93,14 @@ export const products = [
     ),
   },
   {
-    href: "https://next-rep-store.vercel.app/",
-    title: "NextRep - AI-Powered Ecommerce Revolution",
+    href: 'https://next-rep-store.vercel.app/',
+    title: 'NextRep - AI-Powered Ecommerce Revolution',
     description:
-      "A cutting-edge e-commerce platform enhanced with an AI shopping assistant for personalized product discovery.",
+      'A cutting-edge e-commerce platform enhanced with an AI shopping assistant for personalized product discovery.',
     thumbnail: nextRep,
     images: [nextRep2, nextRep3],
-    stack: ["Nextjs", "Tailwindcss", "Shopify CMS", "OpenAI API"],
-    slug: "NextRep",
+    stack: ['Nextjs', 'Tailwindcss', 'Shopify CMS', 'OpenAI API'],
+    slug: 'NextRep',
     content: (
       <div>
         <p>
@@ -82,19 +123,19 @@ export const products = [
           project highlights technical mastery of full-stack development, API
           integration, and ethical AI implementation, serving as a blueprint for
           the future of intelligent, user-centric online retail.
-        </p>{" "}
+        </p>{' '}
       </div>
     ),
   },
   {
-    href: "https://mda.space/",
-    title: "MDA Space",
+    href: 'https://mda.space/',
+    title: 'MDA Space',
     description:
-      "A cutting-edge creative studio website showcasing immersive 3D animations and interactive experiences",
+      'A cutting-edge creative studio website showcasing immersive 3D animations and interactive experiences',
     thumbnail: mda,
     images: [mda2, mda3],
-    stack: ["Nextjs", "Tailwindcss", "GSAP"],
-    slug: "mda-space",
+    stack: ['Nextjs', 'Tailwindcss', 'GSAP'],
+    slug: 'mda-space',
     content: (
       <div>
         <p>
@@ -120,14 +161,14 @@ export const products = [
     ),
   },
   {
-    href: "https://flashcosmetics.com/",
-    title: "Flash Cosmetics",
+    href: 'https://flashcosmetics.com/',
+    title: 'Flash Cosmetics',
     description:
-      "Modern e-commerce platform for premium beauty products with AI-powered recommendations",
+      'Modern e-commerce platform for premium beauty products with AI-powered recommendations',
     thumbnail: flash,
     images: [flash2, flash3],
-    stack: ["HTML", "Tailwindcss"],
-    slug: "flash-cosmetics",
+    stack: ['HTML', 'Tailwindcss'],
+    slug: 'flash-cosmetics',
     content: (
       <div>
         <p>
@@ -152,14 +193,14 @@ export const products = [
     ),
   },
   {
-    href: "https://itsnaish.vercel.app/",
-    title: "Developer Portfolio v1.0",
+    href: 'https://itsnaish.vercel.app/',
+    title: 'Developer Portfolio v1.0',
     description:
-      "A modern interactive portfolio showcasing full-stack development projects with smooth animations and responsive design.",
+      'A modern interactive portfolio showcasing full-stack development projects with smooth animations and responsive design.',
     thumbnail: naish,
     images: [naish2, naish3],
-    stack: ["Nextjs", "Tailwindcss", "Motion"],
-    slug: "itsnaish",
+    stack: ['Nextjs', 'Tailwindcss', 'Motion'],
+    slug: 'itsnaish',
     content: (
       <div>
         <p>
